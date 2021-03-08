@@ -4,7 +4,7 @@ import React, { useEffect, useRef, useState } from 'react';
 
 import { Form, Input, Button, Select, ConfigProvider, DatePicker, InputNumber, Radio, Switch, Checkbox, TimePicker, Row, Col, Space } from 'antd';
 
-import { IConst, IField, IOption, IConditionFunction, IDataRemote } from './interface';
+import { IConst as IFieldType, IField, IOption, IConditionFunction, IDataRemote } from './interface';
 
 import TextArea from 'antd/lib/input/TextArea';
 
@@ -14,6 +14,8 @@ import { CheckOutlined, CloseCircleOutlined, CloseOutlined } from '@ant-design/i
 
 import { CheckboxValueType } from 'antd/lib/checkbox/Group';
 
+// export {IField} from './interface';
+
 /** @todo localization */
 let INPUT_MAX_VALUE = 999999999999999;
 let SELECT_DEFAULT_ID_NAME = 'id';
@@ -22,7 +24,7 @@ let SELECT_DEFAULT_PLACEHOLDER = '';
 let INPUT_DATE_TIME_SHORT_FORMAT = 'DD/MM/YYYY';
 let INPUT_DATE_TIME_LONG_FORMAT = 'DD/MM/YYYY HH:mm:ss';
 
-let NotFoundItem  = (props : any) => <>Not Found, but it's update from npm link</>;
+let NotFoundItem = <React.Fragment>Not Found, but it's update from npm link</React.Fragment>;
 
 const { RangePicker } = DatePicker;
 
