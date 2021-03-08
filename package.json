@@ -1,6 +1,6 @@
 {
   "name": "antd-dform",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "This is simple form manager base on antdesign, help your easy and quickly create form.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
