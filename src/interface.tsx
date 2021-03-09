@@ -75,7 +75,8 @@ export interface IField {
     rows?: number,
     maxLength?: number,
     defaultPrefix?: string,
-    rule?: Function
+    rule?: Function,
+    dependencies?: string[]
 }
 
 /**

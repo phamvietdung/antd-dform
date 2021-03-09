@@ -7,7 +7,7 @@
   <p align="center">
     Simple form manager for antdesign
     <br />
-    <a href=""><strong>Explore the docs »</strong></a>
+    <a href="https://phamvietdung.github.io/antd-dform/"><strong>Explore the docs »</strong></a>
     <br />
     <br />
     <a href="">View Demo</a>

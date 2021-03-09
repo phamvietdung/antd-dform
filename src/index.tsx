@@ -52,6 +52,30 @@ const FormManager = (props: { fields: IField[], default: Object, option?: IOptio
 
     const [values, setValues] = useState<any>(props.default);
 
+    let dependencies: string[] = [];
+
+    let dependencieField: IField[] = props.fields != undefined && props.fields.length > 0 ? props.fields.filter((f: IField) => {
+
+
+        if (f.dependencies == undefined || f.dependencies.length == 0)
+            return false;
+
+        return true;
+    }) : [];
+
+
+
+    for (let i = 0; i < dependencieField.length; i++) {
+        let currentDep : IField = dependencieField[i];
+
+        for(let j = 0; j < currentDep.dependencies!.length; j++){
+            if(dependencies.indexOf(currentDep.dependencies![j]) == -1){
+                dependencies.push(currentDep.dependencies![j]);
+            }
+        }
+    }
+
+
     const formRef = props.form; //useRef(props.form);
 
     useEffect(() => {
@@ -130,6 +154,18 @@ const FormManager = (props: { fields: IField[], default: Object, option?: IOptio
 
     /** @onValueChange */
     const onValueChange = (value: any, values: any) => {
+
+        let isForceChange = false;
+
+
+        for(let i =0 ; i< dependencies.length; i++){
+            if(value.hasOwnProperty(dependencies[i])){
+                isForceChange = true;
+            }
+        }
+
+        if(isForceChange)
+            setValues(values);
 
         // if (timeout !== undefined)
         //     clearTimeout(timeout);
